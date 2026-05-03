@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gusto — Bar à Couscous</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="preloader-logo-wrap">
+      <img src="logo-only.png" alt="Gusto Logo" class="preloader-logo-img" />
+    </div>
+    <div class="preloader-bar">
+      <div class="preloader-fill"></div>
+    </div>
+  </div>
+
+  <!-- ══ NAV ══ -->
+  <nav>
+    <a href="#hero" class="logo-link">
+      <img src="logo-only.png" alt="Gusto Bar à Couscous" class="nav-logo-img" />
+    </a>
+    <ul>
+      <li><a href="#about">Story</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#order">Order</a></li>
+      <li><a href="#reservation">Reserve</a></li>
+    </ul>
+    <button class="nav-reserve">Reserve a Table</button>
+    <button class="nav-cart-btn" id="nav-cart-btn" title="View Order">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span class="nav-cart-badge" id="nav-cart-badge">0</span>
+    </button>
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobile-nav">
+    <button class="mobile-nav-close" id="mobile-nav-close">✕</button>
+    <ul>
+      <li><a href="#about">Story</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#order">Order</a></li>
+      <li><a href="#reservation">Reserve</a></li>
+    </ul>
+    <a href="#reservation" class="btn-gold mobile-reserve">Reserve a Table</a>
+  </div>
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+
+  <!-- ══ HERO ══ -->
+  <section id="hero">
+
+    <!-- Video background layer -->
+    <div class="hero-video-wrap">
+      <video class="hero-video" autoplay muted loop playsinline
+        poster="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=1920&q=80">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-cooking-in-a-restaurant-kitchen-1261-large.mp4" type="video/mp4" />
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-chef-cooking-close-up-in-a-kitchen-2-large.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- Three.js particle overlay -->
+    <canvas id="hero-canvas"></canvas>
+
+    <!-- Dark gradient overlay for readability -->
+    <div class="hero-overlay"></div>
+
+    <!-- Content -->
+    <div class="hero-content">
+      <p class="hero-eyebrow">Berkeley, CA &nbsp;·&nbsp; Bar à Couscous &nbsp;·&nbsp; Chef Aghiles</p>
+      <h1 class="hero-headline">The Art of<br><em>North African</em> Cuisine</h1>
+      <p class="hero-subtitle">Authentic tajines, couscous &amp; flavors — crafted with generations of Algerian heritage.</p>
+      <div class="hero-btns">
+        <a href="#reservation" class="btn-gold">Reserve a Table</a>
+        <a href="#menu" class="btn-ghost">Explore the Menu</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span class="scroll-text">Scroll</span>
+    </div>
+  </section>
+
+  <!-- ══ ABOUT ══ -->
+  <section id="about">
+    <canvas class="section-canvas" id="about-canvas"></canvas>
+    <div class="about-visual reveal-left">
+      <div class="about-img-frame">
+        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=900&q=85" alt="Moroccan Couscous Kitchen" />
+      </div>
+      <div class="about-badge">
+        <span>Chef</span>
+        <span>Aghiles</span>
+      </div>
+    </div>
+    <div class="about-text reveal-right">
+      <div class="section-header">
+        <span class="section-tag">Our Story</span>
+        <h2 class="section-title">A Taste of<br><em>North Africa</em></h2>
+        <div class="section-line"><div class="diamond"></div></div>
+      </div>
+      <p>
+        Gusto Bar à Couscous was born from Chef Aghiles' passion for the rich,
+        aromatic traditions of North African cuisine. Every grain of couscous,
+        every slow-simmered tajine is a tribute to generations of culinary heritage.
+      </p>
+      <p>
+        Located in the heart of Berkeley, we bring the warmth of Algerian hospitality
+        to your table — with hand-crafted spice blends, fresh local produce,
+        and recipes passed down through family.
+      </p>
+      <div class="about-stats">
+        <div class="stat-item reveal">
+          <span class="stat-num" data-target="12" data-suffix="">0</span>
+          <span class="stat-label">Couscous Varieties</span>
+        </div>
+        <div class="stat-item reveal">
+          <span class="stat-num" data-target="8" data-suffix="">0</span>
+          <span class="stat-label">Tajine Recipes</span>
+        </div>
+        <div class="stat-item reveal">
+          <span class="stat-num" data-target="99" data-suffix="%">0</span>
+          <span class="stat-label">Guest Satisfaction</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MENU ══ -->
+  <section id="menu">
+    <canvas class="section-canvas" id="menu-bg-canvas"></canvas>
+    <div class="section-header reveal">
+      <span class="section-tag">Curated Selections</span>
+      <h2 class="section-title">Our <em>Menu</em></h2>
+      <div class="section-line"><div class="diamond"></div></div>
+    </div>
+
+    <div class="menu-tabs reveal">
+      <button class="tab-btn active" data-cat="all">All</button>
+      <button class="tab-btn" data-cat="soup">Soup</button>
+      <button class="tab-btn" data-cat="shawarma">Shawarma</button>
+      <button class="tab-btn" data-cat="merguez">Merguez</button>
+      <button class="tab-btn" data-cat="kebob">Kebob</button>
+      <button class="tab-btn" data-cat="couscous">Couscous</button>
+      <button class="tab-btn" data-cat="sides">Sides</button>
+      <button class="tab-btn" data-cat="drinks">Drinks</button>
+    </div>
+
+    <div class="menu-grid">
+      <div class="menu-card reveal" data-cat="soup">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80" alt="Homemade Soup" />
+              <div class="card-front-gradient">
+                
+                <div class="card-front-info"><h3>Homemade Soup</h3><span class="price">$8.99</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Soup</span>
+              <h3>Homemade Soup</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Onion, Carrot, Celery, Potato and Coriander</p>
+              <div class="card-back-footer">
+                <span class="price">$8.99</span>
+                <button class="add-btn" data-name="Homemade Soup" data-price="8.99">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="shawarma">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1561651188-d207bbec4ec3?w=600&q=80" alt="Chicken Shawarma Sandwich" />
+              <div class="card-front-gradient">
+                <span class="menu-tag">Popular</span>
+                <div class="card-front-info"><h3>Chicken Shawarma Sandwich</h3><span class="price">$14.99</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Shawarma</span>
+              <h3>Chicken Shawarma Sandwich</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Chicken, Lettuce, Tomato, Onion, Pickles with Algerian Sauce or Tzatziki or Tahini, French Fries</p>
+              <div class="card-back-footer">
+                <span class="price">$14.99</span>
+                <button class="add-btn" data-name="Chicken Shawarma Sandwich" data-price="14.99">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="shawarma">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=600&q=80" alt="Beef Shawarma Sandwich" />
+              <div class="card-front-gradient">
+                
+                <div class="card-front-info"><h3>Beef Shawarma Sandwich</h3><span class="price">$14.99</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Shawarma</span>
+              <h3>Beef Shawarma Sandwich</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Beef, Lettuce, Tomato, Onion, Pickles with Algerian Sauce, Tzatziki or Tahini</p>
+              <div class="card-back-footer">
+                <span class="price">$14.99</span>
+                <button class="add-btn" data-name="Beef Shawarma Sandwich" data-price="14.99">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="shawarma">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1512058454905-6b841e7ad132?w=600&q=80" alt="Shawarma Combo Beef & Chicken" />
+              <div class="card-front-gradient">
+                <span class="menu-tag">Chef's Pick</span>
+                <div class="card-front-info"><h3>Shawarma Combo Beef & Chicken</h3><span class="price">$15.99</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Shawarma</span>
+              <h3>Shawarma Combo Beef & Chicken</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Chicken, Beef, Lettuce, Tomato, Onion, Pickles with Algerian Sauce, Tzatziki or Tahini</p>
+              <div class="card-back-footer">
+                <span class="price">$15.99</span>
+                <button class="add-btn" data-name="Shawarma Combo Beef & Chicken" data-price="15.99">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="shawarma">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80" alt="Shawarma Combo" />
+              <div class="card-front-gradient">
+                
+                <div class="card-front-info"><h3>Shawarma Combo</h3><span class="price">$18.99</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Shawarma</span>
+              <h3>Shawarma Combo</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Shawarma with Fries and Drink included</p>
+              <div class="card-back-footer">
+                <span class="price">$18.99</span>
+                <button class="add-btn" data-name="Shawarma Combo" data-price="18.99">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="merguez">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=600&q=80" alt="Merguez Sandwich" />
+              <div class="card-front-gradient">
+                <span class="menu-tag">Signature</span>
+                <div class="card-front-info"><h3>Merguez Sandwich</h3><span class="price">$15.99</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Merguez</span>
+              <h3>Merguez Sandwich</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Merguez, French Fries, Lettuce, Tomato, Onion and Algerian Sauce</p>
+              <div class="card-back-footer">
+                <span class="price">$15.99</span>
+                <button class="add-btn" data-name="Merguez Sandwich" data-price="15.99">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="merguez">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1544025162-d76538b51dc9?w=600&q=80" alt="Merguez Plate" />
+              <div class="card-front-gradient">
+                
+                <div class="card-front-info"><h3>Merguez Plate</h3><span class="price">$18.99</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Merguez</span>
+              <h3>Merguez Plate</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Merguez, Half French Fries, Half Rice, Salad, Tomato and Onion with Tzatziki and Harissa</p>
+              <div class="card-back-footer">
+                <span class="price">$18.99</span>
+                <button class="add-btn" data-name="Merguez Plate" data-price="18.99">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="merguez">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1513185041617-8ab03f83d6c5?w=600&q=80" alt="Beef Tongue Sandwich" />
+              <div class="card-front-gradient">
+                <span class="menu-tag">Chef's Special</span>
+                <div class="card-front-info"><h3>Beef Tongue Sandwich</h3><span class="price">$17.99</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Merguez</span>
+              <h3>Beef Tongue Sandwich</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Beef tongue, Onion, Parsley, American cheese and Tzatziki sauce</p>
+              <div class="card-back-footer">
+                <span class="price">$17.99</span>
+                <button class="add-btn" data-name="Beef Tongue Sandwich" data-price="17.99">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="kebob">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1544025162-d76538b51dc9?w=600&q=80" alt="Koobideh" />
+              <div class="card-front-gradient">
+                
+                <div class="card-front-info"><h3>Koobideh</h3><span class="price">$21.99</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Kebob</span>
+              <h3>Koobideh</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Two skewers Koobideh ground beef, Grilled Tomato, Rice with Saffron and Salad</p>
+              <div class="card-back-footer">
+                <span class="price">$21.99</span>
+                <button class="add-btn" data-name="Koobideh" data-price="21.99">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="kebob">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=600&q=80" alt="Joojeh Kabab" />
+              <div class="card-front-gradient">
+                
+                <div class="card-front-info"><h3>Joojeh Kabab</h3><span class="price">$23.99</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Kebob</span>
+              <h3>Joojeh Kabab</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Chicken breast skewer, Grilled Tomato, Rice with Saffron and Salad</p>
+              <div class="card-back-footer">
+                <span class="price">$23.99</span>
+                <button class="add-btn" data-name="Joojeh Kabab" data-price="23.99">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="kebob">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1506354666786-959d6d497f1a?w=600&q=80" alt="Joojeh Sultani" />
+              <div class="card-front-gradient">
+                <span class="menu-tag">Popular</span>
+                <div class="card-front-info"><h3>Joojeh Sultani</h3><span class="price">$26.99</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Kebob</span>
+              <h3>Joojeh Sultani</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Chicken breast skewer and Koobideh ground beef, Grilled Tomato, Rice with Saffron and Salad</p>
+              <div class="card-back-footer">
+                <span class="price">$26.99</span>
+                <button class="add-btn" data-name="Joojeh Sultani" data-price="26.99">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="kebob">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80" alt="Shish Leek" />
+              <div class="card-front-gradient">
+                
+                <div class="card-front-info"><h3>Shish Leek</h3><span class="price">$33.99</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Kebob</span>
+              <h3>Shish Leek</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Four shish leek, Grilled Tomato, Rice with Saffron and Salad</p>
+              <div class="card-back-footer">
+                <span class="price">$33.99</span>
+                <button class="add-btn" data-name="Shish Leek" data-price="33.99">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="couscous">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&q=80" alt="Couscous au Poulet" />
+              <div class="card-front-gradient">
+                
+                <div class="card-front-info"><h3>Couscous au Poulet</h3><span class="price">$13.99</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Couscous</span>
+              <h3>Couscous au Poulet</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Chicken, Couscous, Carrots, Zucchini, Kale, Sauce and Chickpeas</p>
+              <div class="card-back-footer">
+                <span class="price">$13.99</span>
+                <button class="add-btn" data-name="Couscous au Poulet" data-price="13.99">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="couscous">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=600&q=80" alt="Couscous a Merguez" />
+              <div class="card-front-gradient">
+                <span class="menu-tag">Popular</span>
+                <div class="card-front-info"><h3>Couscous a Merguez</h3><span class="price">$14.99</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Couscous</span>
+              <h3>Couscous a Merguez</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Beef Merguez, Couscous, Carrots, Zucchini, Kale, Sauce and Chickpeas</p>
+              <div class="card-back-footer">
+                <span class="price">$14.99</span>
+                <button class="add-btn" data-name="Couscous a Merguez" data-price="14.99">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="couscous">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=600&q=80" alt="Couscous d Agneau" />
+              <div class="card-front-gradient">
+                
+                <div class="card-front-info"><h3>Couscous d Agneau</h3><span class="price">$15.99</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Couscous</span>
+              <h3>Couscous d Agneau</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Lamb, Couscous, Carrots, Zucchini, Kale, Sauce and Chickpeas</p>
+              <div class="card-back-footer">
+                <span class="price">$15.99</span>
+                <button class="add-btn" data-name="Couscous d Agneau" data-price="15.99">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="couscous">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1516714435131-44d6b64dc6a2?w=600&q=80" alt="Couscous Mixt" />
+              <div class="card-front-gradient">
+                <span class="menu-tag">Chef's Pick</span>
+                <div class="card-front-info"><h3>Couscous Mixt</h3><span class="price">$20.98</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Couscous</span>
+              <h3>Couscous Mixt</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Chicken and Lamb, Couscous, Carrots, Zucchini, Kale, Sauce and Chickpeas</p>
+              <div class="card-back-footer">
+                <span class="price">$20.98</span>
+                <button class="add-btn" data-name="Couscous Mixt" data-price="20.98">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="couscous">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80" alt="Vegan Couscous" />
+              <div class="card-front-gradient">
+                <span class="menu-tag">Vegan</span>
+                <div class="card-front-info"><h3>Vegan Couscous</h3><span class="price">$12.99</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Couscous</span>
+              <h3>Vegan Couscous</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Steamed vegetables, carrots, sweet potatoes, zucchini, butternut squash, potato, turnip, peas, chickpeas, avocado oil</p>
+              <div class="card-back-footer">
+                <span class="price">$12.99</span>
+                <button class="add-btn" data-name="Vegan Couscous" data-price="12.99">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="couscous">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1540914124281-342587941389?w=600&q=80" alt="Couscous aux Legumes" />
+              <div class="card-front-gradient">
+                <span class="menu-tag">Vegetarian</span>
+                <div class="card-front-info"><h3>Couscous aux Legumes</h3><span class="price">$11.99</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Couscous</span>
+              <h3>Couscous aux Legumes</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Seven vegetables couscous with aromatic sauce</p>
+              <div class="card-back-footer">
+                <span class="price">$11.99</span>
+                <button class="add-btn" data-name="Couscous aux Legumes" data-price="11.99">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="sides">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1576402187878-974f70c890a5?w=600&q=80" alt="Hummus" />
+              <div class="card-front-gradient">
+                
+                <div class="card-front-info"><h3>Hummus</h3><span class="price">$6.99</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Sides</span>
+              <h3>Hummus</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Tahini, garbanzo beans with garlic and olive oil</p>
+              <div class="card-back-footer">
+                <span class="price">$6.99</span>
+                <button class="add-btn" data-name="Hummus" data-price="6.99">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="sides">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?w=600&q=80" alt="Baba Ghanoush" />
+              <div class="card-front-gradient">
+                
+                <div class="card-front-info"><h3>Baba Ghanoush</h3><span class="price">$8.99</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Sides</span>
+              <h3>Baba Ghanoush</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Grilled eggplant, Tahini, Garlic and Olive Oil</p>
+              <div class="card-back-footer">
+                <span class="price">$8.99</span>
+                <button class="add-btn" data-name="Baba Ghanoush" data-price="8.99">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="sides">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600&q=80" alt="Dolma" />
+              <div class="card-front-gradient">
+                
+                <div class="card-front-info"><h3>Dolma</h3><span class="price">$6.99</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Sides</span>
+              <h3>Dolma</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Grape leaves stuffed with seasoned rice, fresh herbs, onion and lemon, braised in olive oil</p>
+              <div class="card-back-footer">
+                <span class="price">$6.99</span>
+                <button class="add-btn" data-name="Dolma" data-price="6.99">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="sides">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=600&q=80" alt="French Fries" />
+              <div class="card-front-gradient">
+                
+                <div class="card-front-info"><h3>French Fries</h3><span class="price">$3.99</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Sides</span>
+              <h3>French Fries</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Crispy golden fries</p>
+              <div class="card-back-footer">
+                <span class="price">$3.99</span>
+                <button class="add-btn" data-name="French Fries" data-price="3.99">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="sides">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1516684732162-798a0062be99?w=600&q=80" alt="Rice with Saffron" />
+              <div class="card-front-gradient">
+                
+                <div class="card-front-info"><h3>Rice with Saffron</h3><span class="price">$3.25</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Sides</span>
+              <h3>Rice with Saffron</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Aromatic saffron-infused rice</p>
+              <div class="card-back-footer">
+                <span class="price">$3.25</span>
+                <button class="add-btn" data-name="Rice with Saffron" data-price="3.25">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="drinks">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1514362453360-8f94243c9996?w=600&q=80" alt="Algerian Soda" />
+              <div class="card-front-gradient">
+                <span class="menu-tag">Authentic</span>
+                <div class="card-front-info"><h3>Algerian Soda</h3><span class="price">$2.99</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Drinks</span>
+              <h3>Algerian Soda</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Authentic Algerian sodas: Selecto, Citron, Orange. Lightly sparkling and refreshing.</p>
+              <div class="card-back-footer">
+                <span class="price">$2.99</span>
+                <button class="add-btn" data-name="Algerian Soda" data-price="2.99">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="drinks">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=600&q=80" alt="Soda" />
+              <div class="card-front-gradient">
+                
+                <div class="card-front-info"><h3>Soda</h3><span class="price">$2.49</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Drinks</span>
+              <h3>Soda</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Assorted sodas</p>
+              <div class="card-back-footer">
+                <span class="price">$2.49</span>
+                <button class="add-btn" data-name="Soda" data-price="2.49">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-card reveal" data-cat="drinks">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="menu-img-full">
+              <img src="https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=600&q=80" alt="Water Bottle" />
+              <div class="card-front-gradient">
+                
+                <div class="card-front-info"><h3>Water Bottle</h3><span class="price">$1.49</span></div>
+                <span class="flip-hint">Click to explore</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-content">
+              <span class="card-back-category">Drinks</span>
+              <h3>Water Bottle</h3>
+              <div class="back-divider"><div class="diamond"></div></div>
+              <p>Still water</p>
+              <div class="card-back-footer">
+                <span class="price">$1.49</span>
+                <button class="add-btn" data-name="Water Bottle" data-price="1.49">Add to Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ RESERVATION ══ -->
+  <section id="reservation">
+
+    <!-- LEFT: PROMO CARD -->
+    <div class="res-promo">
+      <div class="res-promo-bg">
+        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800&q=80" alt="Chef's Couscous" />
+      </div>
+      <div class="res-promo-inner">
+        <span class="res-promo-tag">Chef's Special</span>
+        <h3 class="res-promo-title">Signature<br><em>North African</em><br>Experience</h3>
+        <p class="res-promo-desc">Enjoy our authentic couscous and tajine — hand-crafted with generations of Algerian culinary heritage and fresh local produce.</p>
+
+        <div class="res-promo-divider"><div class="diamond"></div></div>
+
+        <div class="res-promo-features">
+          <div class="res-feature"><span class="res-feature-icon">✦</span><span>12 Couscous Varieties</span></div>
+          <div class="res-feature"><span class="res-feature-icon">✦</span><span>8 Signature Tajines</span></div>
+          <div class="res-feature"><span class="res-feature-icon">✦</span><span>Fresh Spice Blends</span></div>
+          <div class="res-feature"><span class="res-feature-icon">✦</span><span>99% Guest Satisfaction</span></div>
+        </div>
+
+        <div class="res-promo-offer">
+          <span class="res-offer-label">Reserve Today &amp; Discover</span>
+          <p>Let Chef Aghiles take you on a culinary journey through North Africa — right here in Berkeley, CA.</p>
+        </div>
+
+        <a href="#menu" class="btn-ghost res-promo-btn">View Full Menu</a>
+      </div>
+    </div>
+
+    <!-- RIGHT: FORM -->
+    <div class="res-text">
+      <div class="section-header">
+        <span class="section-tag">Reserve Your Evening</span>
+        <h2 class="section-title">Book a<br><em>Table</em></h2>
+        <div class="section-line"><div class="diamond"></div></div>
+      </div>
+
+      <form class="reservation-form" id="reservation-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Your first name" required />
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Your last name" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" placeholder="+1 (510) 000-0000" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" required />
+          </div>
+          <div class="form-group">
+            <label>Time</label>
+            <select required>
+              <option value="">Select time</option>
+              <option>11:30 AM</option>
+              <option>12:00 PM</option>
+              <option>12:30 PM</option>
+              <option>1:00 PM</option>
+              <option>6:00 PM</option>
+              <option>6:30 PM</option>
+              <option>7:00 PM</option>
+              <option>7:30 PM</option>
+              <option>8:00 PM</option>
+              <option>8:30 PM</option>
+              <option>9:00 PM</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Guests</label>
+            <select required>
+              <option value="">Number of guests</option>
+              <option>1 Guest</option>
+              <option>2 Guests</option>
+              <option>3 Guests</option>
+              <option>4 Guests</option>
+              <option>5 Guests</option>
+              <option>6 Guests</option>
+              <option>7+ Guests (call us)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Occasion</label>
+            <select>
+              <option value="">Select occasion</option>
+              <option>Anniversary</option>
+              <option>Birthday</option>
+              <option>Family Gathering</option>
+              <option>Business Lunch</option>
+              <option>Celebration</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group form-full">
+            <label>Special Requests</label>
+            <textarea placeholder="Dietary requirements, allergies, special arrangements..."></textarea>
+          </div>
+        </div>
+
+        <div style="margin-top: 10px;">
+          <button type="submit" class="btn-gold" style="width:100%; clip-path:none; display:block; text-align:center; font-family:'Montserrat',sans-serif; font-size:0.8rem; letter-spacing:3px; border:none;">
+            Confirm Reservation
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ══ ORDER ══ -->
+  <section id="order">
+    <canvas class="section-canvas" id="order-bg-canvas"></canvas>
+    <div class="section-header reveal">
+      <span class="section-tag">Dine In or Takeout</span>
+      <h2 class="section-title">Place Your <em>Order</em></h2>
+      <div class="section-line"><div class="diamond"></div></div>
+    </div>
+
+    <div class="order-grid">
+      <div class="order-card reveal">
+        <img src="https://images.unsplash.com/photo-1561651188-d207bbec4ec3?w=500&q=75" alt="Chicken Shawarma" />
+        <div class="order-card-body">
+          <h4>Chicken Shawarma</h4>
+          <p>Lettuce · Tomato · Algerian Sauce</p>
+          <div class="order-card-foot">
+            <span class="price">$14.99</span>
+            <button class="add-btn" data-name="Chicken Shawarma Sandwich" data-price="14.99">+ Add</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-card reveal">
+        <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=500&q=75" alt="Merguez Sandwich" />
+        <div class="order-card-body">
+          <h4>Merguez Sandwich</h4>
+          <p>Merguez · Fries · Algerian Sauce</p>
+          <div class="order-card-foot">
+            <span class="price">$15.99</span>
+            <button class="add-btn" data-name="Merguez Sandwich" data-price="15.99">+ Add</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-card reveal">
+        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=500&q=75" alt="Couscous a Merguez" />
+        <div class="order-card-body">
+          <h4>Couscous a Merguez</h4>
+          <p>Beef Merguez · Carrots · Zucchini · Kale</p>
+          <div class="order-card-foot">
+            <span class="price">$14.99</span>
+            <button class="add-btn" data-name="Couscous a Merguez" data-price="14.99">+ Add</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-card reveal">
+        <img src="https://images.unsplash.com/photo-1506354666786-959d6d497f1a?w=500&q=75" alt="Joojeh Sultani" />
+        <div class="order-card-body">
+          <h4>Joojeh Sultani</h4>
+          <p>Chicken & Beef Skewer · Rice · Salad</p>
+          <div class="order-card-foot">
+            <span class="price">$26.99</span>
+            <button class="add-btn" data-name="Joojeh Sultani" data-price="26.99">+ Add</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-card reveal">
+        <img src="https://images.unsplash.com/photo-1576402187878-974f70c890a5?w=500&q=75" alt="Hummus" />
+        <div class="order-card-body">
+          <h4>Hummus</h4>
+          <p>Tahini · Garbanzo · Garlic · Olive Oil</p>
+          <div class="order-card-foot">
+            <span class="price">$6.99</span>
+            <button class="add-btn" data-name="Hummus" data-price="6.99">+ Add</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-card reveal">
+        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=500&q=75" alt="Homemade Soup" />
+        <div class="order-card-body">
+          <h4>Homemade Soup</h4>
+          <p>Onion · Carrot · Celery · Coriander</p>
+          <div class="order-card-foot">
+            <span class="price">$8.99</span>
+            <button class="add-btn" data-name="Homemade Soup" data-price="8.99">+ Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- View Order bar (appears when cart has items) -->
+    <div class="view-order-bar" id="view-order-bar">
+      <span class="view-order-info">
+        <span id="view-order-count">0</span> item(s) in your order
+        &nbsp;·&nbsp;
+        <span id="view-order-total">$0.00</span>
+      </span>
+      <button class="view-order-btn" id="view-order-btn">View My Order →</button>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="logo-only.png" alt="Gusto Bar à Couscous" class="footer-logo-img" />
+        <p>Authentic North African cuisine in the heart of Berkeley. Every dish tells a story of heritage, spice &amp; love.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/gusto_resterant" target="_blank" class="social-link">
+            <span>&#9679;</span> @gusto_resterant
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#order">Order Online</a></li>
+          <li><a href="#reservation">Reserve</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <ul>
+          <li><a>Mon – Fri: 11:30am – 10pm</a></li>
+          <li><a>Saturday: 11am – 11pm</a></li>
+          <li><a>Sunday: 12pm – 9pm</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <img src="info-card.png" alt="Gusto Contact Info" class="footer-info-card" />
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Gusto Bar à Couscous — Chef Aghiles. All rights reserved.</p>
+      <div class="footer-contact-links">
+        <a href="tel:5104397514">📞 510 439 7514</a>
+        <a href="mailto:didiaghiles@gmail.com">✉ didiaghiles@gmail.com</a>
+        <a href="https://instagram.com/gusto_resterant" target="_blank">📷 @gusto_resterant</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══ CHATBOT ══ -->
+  <div class="chat-btn" id="chat-btn" title="Ask me anything">
+    <span class="chat-btn-icon">✦</span>
+    <span class="chat-btn-label">Ask me</span>
+    <span class="chat-unread" id="chat-unread" style="display:none">1</span>
+  </div>
+
+  <div class="chat-panel" id="chat-panel">
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <div class="chat-avatar">G</div>
+        <div>
+          <div class="chat-name">Gusto Assistant</div>
+          <div class="chat-status">Online · Always here to help</div>
+        </div>
+      </div>
+      <button class="chat-close" id="chat-close">✕</button>
+    </div>
+    <div class="chat-messages" id="chat-messages"></div>
+    <div class="chat-suggestions" id="chat-suggestions"></div>
+    <div class="chat-input-row">
+      <input type="text" id="chat-input" placeholder="Ask about menu, hours, location…" autocomplete="off" />
+      <button class="chat-send" id="chat-send">➤</button>
+    </div>
+  </div>
+
+  <!-- ══ TOAST ══ -->
+  <div class="toast" id="toast">
+    <span class="toast-icon">✦</span>
+    <span class="toast-msg"></span>
+  </div>
+
+  <!-- ══ MODALS ══ -->
+  <div class="modal-overlay" id="res-modal">
+    <div class="modal">
+      <div class="modal-icon">✦</div>
+      <h2>Reservation Confirmed</h2>
+      <p>Your table has been reserved at Gusto Bar à Couscous. We look forward to welcoming you! A confirmation will be sent shortly.</p>
+      <button class="btn-gold" onclick="closeModal('res-modal')" style="border:none; font-family:'Montserrat',sans-serif; font-size:0.78rem; letter-spacing:2px;">
+        Shukran — Thank You!
+      </button>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="order-modal">
+    <div class="modal">
+      <div class="modal-icon">🫕</div>
+      <h2>Order Received!</h2>
+      <p>Chef Aghiles has received your order. Estimated time: 25–35 minutes. Enjoy your Gusto experience!</p>
+      <button class="btn-gold" onclick="closeModal('order-modal')" style="border:none; font-family:'Montserrat',sans-serif; font-size:0.78rem; letter-spacing:2px;">
+        Wonderful!
+      </button>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="supabase-client.js"></script>
+  <script src="script.js"></script>
+  <script src="chatbot.js"></script>
+</body>
+</html>
